@@ -1,9 +1,16 @@
-import { Button, Col, DatePicker, Form, Input, message, Row, Switch } from 'antd';
+import { Button, Col, DatePicker, Form, Grid, Input, message, Row, Switch } from 'antd';
 import './NewClient.scss'
 
+interface UserDataType {
+  name: string;
+  isClientlocked: boolean;
+  cpf: string;
+  rg: string;
+  birthday: any;
+}
+
 export function NewClientForm() {
-  const handleCreateUser = (userData: any) => {
-    console.log(userData)
+  const handleCreateUser = (userData: UserDataType) => {
     message.success('cliente cadastrado com sucesso!');
   };
 
@@ -28,15 +35,6 @@ export function NewClientForm() {
             <Input placeholder='Insira o nome do cliente' />
           </Form.Item>
         </Col>
-        <Col span={10}>
-          <Form.Item
-            label="Sobrenome"
-            name="Last-name"
-          >
-            <Input placeholder='Insira o sobrenomenome do cliente' />
-          </Form.Item>
-        </Col>
-
         <Col span={4}>
           <Form.Item
             label="Bloqueado"
@@ -48,22 +46,21 @@ export function NewClientForm() {
             />
           </Form.Item>
         </Col>
-
       </Row>
 
       <Row gutter={30}>
         <Col span={8}>
           <Form.Item
-            label="CPF"
-            name="CPF"
+            label="cpf"
+            name="cpf"
           >
-            <Input placeholder="Insira o CFP do cliente" />
+            <Input placeholder="Insira o CPF do cliente" />
           </Form.Item>
         </Col>
         <Col span={8}>
           <Form.Item
-            label="RG"
-            name="RG"
+            label="rg"
+            name="rg"
           >
             <Input placeholder="Insira o RG do cliente" />
           </Form.Item>
